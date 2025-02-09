@@ -24,7 +24,7 @@ function App() {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <View>
+      <View sytle={styles.appContainer}>
         <ToDoList tasks={tasks}/>
         <ToDoForm addTask={addTask}/>
       </View>
@@ -34,7 +34,13 @@ function App() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: "#f4f4f4",
     marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
+  appContainer: {
+    flex: 1,
+    padding: 20,
   },
 });
 

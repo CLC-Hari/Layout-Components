@@ -3,11 +3,11 @@ import React from "react";
 
 const ToDoList = ({ tasks }) => {
   return (
-    <ScrollView>
+    <ScrollView style={styles.listContainer}>
       {tasks.map((task) => (
         <Pressable key={task.id}>
-          <View style={[styles.task, task.completed && styles.completed]}>
-            <Text style={styles.taskText}>{task.text}</Text>
+          <View style={[styles.task, task.completed && styles.completedTask]}>
+            <Text style={[styles.taskText, task.completed && styles.completedText]}>{task.text}</Text>
           </View>
         </Pressable>
       ))}
@@ -18,15 +18,29 @@ const ToDoList = ({ tasks }) => {
 export default ToDoList;
 
 const styles = StyleSheet.create({
+  listContainer: {
+    marginBottom: 20,
+  },
   task: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderColor: "#ccc",
+    backgroundColor: '#fff',
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
   completed: {
     backgroundColor: "#e0e0e0",
   },
   taskText: {
     fontSize: 16,
+    color: '#333',
+  },
+  completedText: {
+    textDecorationLine: 'line-through',
+    color: '#777',
   },
 });
